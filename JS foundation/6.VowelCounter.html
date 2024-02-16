@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+    <span>Name</span>
+    <input type="text" placeholder="enter name" id="name"> <br><br>
+
+    <input type="button" value="Submit" id="btn">
+    <p id="text"> </p>
+</body>
+<script>
+    let name = document.getElementById('name');
+    let btn = document.getElementById('btn');
+    let text = document.getElementById("text");
+
+
+    btn.addEventListener('click',()=>{
+        let word = name.value;
+        console.log(word);
+        let letter = [...word];
+        console.log(letter);
+
+        let vowel = ["a","e","i","o","u"];
+
+        let counter = 0;
+
+        letter.forEach(element => {
+            for (let i = 0; i < vowel.length; i++) {
+                if(element === vowel[i])
+                counter++;
+            }
+        });
+
+        let consonants = letter.length - counter;
+        
+        console.log(counter);
+        text.innerHTML = (`No. of vowels are ${counter} and consonants are ${consonants}`);
+
+    })
+</script>
+</html>

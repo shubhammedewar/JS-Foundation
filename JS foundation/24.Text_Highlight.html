@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .longWord{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <p id="para">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi aut reprehenderit praesentium porro distinctio ratione sunt corrupti recusandae, laborum qui ipsa eveniet facilis amet modi aspernatur voluptatum illum quod? Ea, perspiciatis odio! Repudiandae similique nostrum iusto, maiores voluptatem quasi placeat sint laborum ipsum ipsam dolore! Quam, in obcaecati temporibus quisquam deserunt laudantium doloremque odio. Dolorum nostrum corporis beatae iure, neque error quibusdam, ullam, architecto blanditiis ducimus velit! Placeat voluptas in id, tempore quasi aspernatur consectetur nobis quos temporibus aliquid cumque ipsam rem ad, labore voluptate quia aut. Eos possimus nemo ipsam officiis saepe tempora obcaecati porro dolorum optio laudantium provident odit eum suscipit corporis, accusantium a similique ad placeat repudiandae! Ipsam doloribus suscipit, fugiat iste vel dolores illo nobis fuga id minus sint doloremque officiis quis eos ducimus modi accusamus voluptas debitis, nostrum ad provident. Dolores asperiores, delectus eius totam quibusdam nostrum amet similique est deserunt facilis a nulla nam cumque aspernatur rem dolore quod illum! Provident sunt cumque explicabo modi saepe numquam asperiores ea perspiciatis non quis tempore blanditiis accusamus, tempora et quia ratione aliquam sequi, libero eius doloribus! Animi culpa aut veritatis illum inventore rem vero, aliquid nisi! Impedit quas aspernatur in id deserunt officia placeat, velit perspiciatis?</p>
+</body>
+<script>
+    let para = document.getElementById('para');
+    // console.log(para.innerHTML); 
+
+    let text = para.innerHTML
+    
+    let word = text.split(" ")
+    
+    
+    // console.log(word.length);
+    let array = []
+    for (let i = 0; i < word.length; i++) {
+       
+        if (word[i].length>8) {
+            
+            console.log(word[i]);
+        
+            word[i] = '<span class="longWord">'+ word[i] +'</span>';
+        
+        }
+        
+    }
+    para.innerHTML = word.join(" ");
+    // console.log(array);
+    
+</script>
+</html>

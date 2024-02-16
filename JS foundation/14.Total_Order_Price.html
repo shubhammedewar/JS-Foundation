@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .displayValue{
+            height: 17px;
+            width: 30px;
+            border: 2px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .item{
+            display: flex;
+            flex-direction: row;
+            gap: 2px;
+        }
+            </style>
+</head>
+<body>
+    <p>Items</p>
+
+    <span class="obj">Pen</span>
+    <span>Rs:each</span>
+    <span class="price">20</span>
+
+    <div class="item item1">
+        <span><input type="button" value="-" class="decrement"></span>
+        <span class="displayValue"></span>
+        <span><input type="button" value="+" class="increment"></span>
+    </div><br>
+
+    <span class="obj">Pencil</span>
+    <span>Rs:each</span>
+    <span class="price">10</span>
+
+    <div class="item item2">
+        <span><input type="button" value="-" class="decrement"></span>
+        <span class="displayValue"></span>
+        <span><input type="button" value="+" class="increment"></span>
+    </div><br>
+    
+    <span class="obj">Book</span>
+    <span>Rs:each</span>
+    <span class="price">120</span>
+
+    <div class="item item3">
+        <span><input type="button" value="-" class="decrement"></span>
+        <span class="displayValue"></span>
+        <span><input type="button" value="+" class="increment"></span>
+    </div>
+    <br><br>
+    <input type="button" value="Add to cart" id="addCart">
+</body>
+<script>
+
+    let incrementbtn = document.getElementsByClassName('increment');
+    let decrementbtn = document.getElementsByClassName('decrement');
+    let displayValue = document.getElementsByClassName('displayValue');
+    let obj = document.getElementsByClassName('obj');
+    let addCartBtn = document.getElementById('addCart');
+    let price = document.getElementsByClassName('price');
+
+    let array = [];
+
+    for (let i = 0; i < displayValue.length; i++) {
+
+            displayValue[i].innerHTML=0;
+
+            decrementbtn[i].addEventListener('click',function(){
+                
+                let curValue =(displayValue[i].innerHTML);
+                
+                if (curValue<=0) {
+                    alert('item cant be reduced');
+                }
+                else{
+                    curValue=curValue-1;
+                }
+                displayValue[i].innerHTML = curValue;
+            }) 
+
+            incrementbtn[i].addEventListener('click', function () {
+                let curValue =Number(displayValue[i].innerHTML);
+                curValue=curValue+1;
+
+                displayValue[i].innerHTML = curValue;
+            })
+
+            addCartBtn.addEventListener('click',function(){
+                
+
+                if (displayValue[i].innerHTML != 0) {
+                    // console.log(`${obj[i].innerHTML} = ${displayValue[i].innerHTML}`);
+                alert(`${obj[i].innerHTML} = ${displayValue[i].innerHTML}`)
+
+                const name = obj[i].innerHTML;
+                const quantity =  Number(displayValue[i].innerHTML);
+                const amount = price[i].innerHTML*displayValue[i].innerHTML;
+
+                array.push({name,quantity,amount});
+                
+                const prices = array.map(x => x.amount);
+                console.log(prices);
+
+                let total_amount = 0;
+
+                for (let i = 0; i < prices.length; i++) {
+                    total_amount = total_amount + prices[i];
+                }
+
+                alert(`Total amount:${total_amount}`);
+
+                }
+               
+               
+                });
+                
+        }
+
+    console.log(array);
+    
+    
+
+
+
+
+    // for (let i = 0; i < array.length; i++) {
+    //     console.log(array[i]);
+    // }
+
+    // const total_amount = array.map(x=>{
+    // console.log(x.price);
+    //             })
+    
+    
+    
+</script>
+</html>

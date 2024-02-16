@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Pattern</p>
+    <input type="text" placeholder="enter only number" id="input">
+    <button id="btn">Submit</button>
+    <div id="text"></div>
+</body>
+<script>
+    let input = document.getElementById('input');
+    let btn = document.getElementById('btn');
+    let text = document.getElementById("text");
+
+    let pattern = function(){
+        let value = input.value;
+        let stars = "";
+        for (let i = 0; i < value; i++) {
+            for (let j = value; j >i; j--) {
+                stars += "*";
+                //text.innerHTML = ('*');
+                //console.log('*');
+                
+            }
+
+            //  stars += String.fromCharCode(10);
+            stars += "\n"
+        }
+        console.log(stars);
+        text.innerHTML = stars;
+    }
+    
+    btn.addEventListener('click',pattern);
+</script>
+</html>

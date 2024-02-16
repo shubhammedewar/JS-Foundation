@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+            margin-top: 15%;
+        }
+        ol{
+            text-align: left;
+            margin-left: 40vw;
+        }
+    </style>
+</head>
+<body>
+<h2>Tasks To complete</h2>
+<ol id="list">
+    
+</ol>
+<div>
+    <input type="text" placeholder="Enter task here..." id="taskInput"/>
+</div>
+<br>
+<button id="btn1">Add Task</button>
+<button id="btn2">Delete Task</button>
+</body>
+<script>
+    let input = document.getElementById('taskInput');
+    let btn = document.getElementById('btn1')
+
+    let dlt = document.getElementById('btn2');
+    
+    let list = document.getElementById('list')
+    // Create a list to store tasks
+    let taskList = [];
+    // let task;
+
+    let addTask = function(){
+
+        
+
+        if (input.value  == '') {
+            alert("Please enter a valid task");
+        }else{
+            let li = document.createElement('li');
+            li.innerHTML = '<input type="checkbox">' +  input.value ;
+            list.appendChild(li);
+            input.value = ''
+        }
+       
+    }
+
+    btn.addEventListener('click',addTask)
+
+    let deleteTask = function() {
+
+        let checkboxes = list.getElementsByTagName('input');
+        for(let i = checkboxes.length - 1; i >= 0; i--){
+            if(checkboxes[i].checked){
+                list.removeChild(checkboxes[i].parentNode);
+            }
+        }
+
+    }
+
+
+dlt.addEventListener('click', deleteTask);
+    
+</script>
+</html>

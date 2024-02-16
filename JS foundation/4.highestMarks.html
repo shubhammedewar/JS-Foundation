@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            margin-top:16%;
+            margin-left: 45%;
+        }
+        #input{
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div>Marks:</div>
+    <input type="text" id="marks"></input>
+    <div id="input"></div>
+    <span>Highest marks:</span>
+    <div id="highMarks"></div>
+    <button id="btn">Find</button>
+</body>
+
+<script>
+    const inputMarks = document.getElementById('marks');
+    const input = document.getElementById("input")
+    const highMarks = document.getElementById("highMarks");
+    const btn = document.getElementById("btn");
+
+    
+    
+
+    // let marks =[];
+    // let mark = parseInt(inputMarks.value);
+    // marks.push(mark);
+    
+
+
+    function findHighestValue() {
+    let marks =(inputMarks.value)
+    let mark = marks.split(" ")
+    console.log(mark)
+    input.innerHTML = mark;
+      
+        let highestMarks = Math.max(...mark);
+        for (let i = 0; i < mark.length; i++) {
+            if (mark[i] > highestMarks) {
+            highestMarks = mark[i];
+            }
+        }
+        console.log(highestMarks);
+        highMarks.innerHTML = highestMarks
+    }
+// findHighestValue()
+    btn.addEventListener('click',findHighestValue);
+    
+</script>
+</html>

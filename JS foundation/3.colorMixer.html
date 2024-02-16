@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="str1"></input>
+    <input type="text" id="str2"></input>
+    <div id="result"></div>
+    <button id="btn">MIX COLOR</button>
+</body>
+<script>
+    let str1 = document.getElementById("str1")
+    let str2 = document.getElementById("str2")
+    let result = document.getElementById("result")
+    let btn = document.getElementById("btn");
+
+    let mixture = function() {
+
+        let c1 = str1.value;
+        let c2 = str2.value;
+
+        switch (c1+c2) {
+
+            case( "red"+"blue" ):
+            case( "blue"+"red" ):
+                result.innerHTML = `Mixed color is purple`
+                break;
+
+            case( "yellow"+"red" ):
+            case ( "red"+"yellow" ):
+                result.innerHTML = `Mixed color is orange`
+                break;
+            
+            case("blue"+"yellow"):
+            case("yellow" +"blue"):
+                result.innerHTML = `Mixed color is green`
+                break;
+
+            default:
+                alert('No combinaton of color')
+                break;
+        }
+
+        
+        // if(str1.value == "red" & str2.value == "blue"){
+        // result.innerHTML = `Mixed color is purple`
+        // }
+
+        // if(str1.value == "red" & str2.value == "yellow"){
+        // result.innerHTML = `Mixed color is orange`
+        // }
+
+        // if(str1.value == "blue" & str2.value == "yellow"){
+        // result.innerHTML = `Mixed color is green`
+        // }
+
+        // else{
+        //     alert("Invalid color combination")
+        // }
+
+    }
+    
+    btn.addEventListener('click', mixture)
+</script>
+</html>

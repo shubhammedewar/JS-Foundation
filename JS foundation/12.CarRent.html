@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+            margin-top: 15%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Car Rent Bill</h1>
+    Enter no. of days:
+    <input type="text" id="days">
+    <br><br>
+    Select Car Type:
+    <select name="Select type" id="carType">
+        <option value="Select">Select type</option>
+        <option value="Economy">Economy(4k/day)</option>
+        <option value="MidSize">MidSize(10k/day)</option>
+        <option value="Luxury">Luxury(20k/day)</option>
+    </select>
+    <button id="btn">Calculate</button>
+</body>
+
+<script>
+    let days = document.getElementById("days");
+    let carType = document.getElementById("carType");
+    let btn = document.getElementById("btn")
+  
+
+    let calculatePrice = function(){
+        
+        if (isNaN(Number(days.value)) || Number(days.value) <=0)
+        {
+            alert(`Please enter a number greater than 0`);
+            }
+            else{
+                let pricePerDay = 0;
+            
+                    switch(carType.value){
+                        case "Economy":
+                            pricePerDay = 4000;
+                            break;
+                        case "MidSize":
+                            pricePerDay = 10000;
+                            break;
+                        case "Luxury":
+                            pricePerDay = 20000;
+                            break;
+                    }
+                let totalPrice = pricePerDay *(days.value);
+                alert(`The cost for ${days.value} days is Rs.${totalPrice.toFixed(2)}  Thank you!`);
+
+            }
+    }
+    btn.addEventListener('click',calculatePrice);
+
+</script>
+</html>

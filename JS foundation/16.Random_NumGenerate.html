@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* * { margin: 0; padding: 0;} */
+        body{
+             font: 400 16/90% Arial,Sans-Serif; 
+             background: #fff;
+            margin-top: 14%;
+            margin-left: 45%; 
+            /* line-height: 50px;    */
+        }
+        .box{
+            height: 20px;
+            width: 150px;
+            border: solid 2px #333;
+            padding: 5px 5px 0px 5px;  
+        }
+        button{
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Random Number Generator</h2>
+    <div class="box" id="box"></div>
+    <button id="btn">Generate</button>
+
+</body>
+<script>
+    let box = document.getElementById('box');
+    let btn = document.getElementById('btn');
+
+
+    let GenerateNum = function(){
+        
+        let number = 0;
+               
+        if (number<101) {
+                number = Math.round(Math.random()*100) ;   
+        }
+        
+        console.log(number);
+        box.innerHTML = number
+       
+    }
+
+    btn.addEventListener('click',GenerateNum);
+    
+
+</script>
+</html>

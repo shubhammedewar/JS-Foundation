@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Enter Numbers</p>
+    <input type="text" id="input">
+    <div id="result"></div>
+    <button id="btn">Submit</button>
+</body>
+<script>
+    let input = document.getElementById('input');
+    let result = document.getElementById('result');
+    let btn = document.getElementById('btn');
+
+    let divisible = function(){
+        let array = input.value;
+        // let numbers = [...array];
+        let numbers = array.split(" ")
+        console.log(numbers);
+
+        for (let ele = 0; ele < numbers.length; ele++) {
+            // console.log(numbers[ele]);
+            
+            if(numbers[ele]%3 == 0 && numbers[ele]%2 !=0){
+                let x = numbers[ele];
+                console.log(x);
+                
+            }
+            
+        }
+    }
+
+    btn.addEventListener('click',divisible);
+</script>
+</html>

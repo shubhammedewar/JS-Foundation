@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+            margin-top: 15%;
+        }
+        .box{
+            width: 140px;
+            height: 20px;
+            border-radius: 5px;
+        }
+        #btn{
+            background-color: #c4f308;
+            border: 2px solid red ;
+            border-radius: 5px;
+            height: 24px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Temperature converter</h1>
+    <input type="text" class="box" id="box1" placeholder="degree Celcius">
+    <button id="btn">Convert</button>
+    <input type="text" class="box" id="box2" placeholder="degree Kelvin">
+</body>
+<script>
+    let box1 = document.getElementById('box1');
+    let box2 = document.getElementById('box2');
+    let btn = document.getElementById("btn");
+
+    let convert = function(){
+        let celsius =parseFloat(box1.value);
+        if(isNaN(celsius)){
+            alert(`Please enter a number!`);
+            return false;
+            }else{
+                let kelvin = parseFloat(celsius) + 273.1
+                // alert(`${kelvin}`);
+                box2.value = kelvin;
+            }
+    }
+
+    btn.addEventListener('click',convert);
+</script>
+</html>

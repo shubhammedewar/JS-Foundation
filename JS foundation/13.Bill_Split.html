@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            /* text-align: center; */
+            margin-top: 12%;
+            margin-left: 38%;
+        }
+        .box{
+            height: 20px;
+            width: 80px;
+            border: 2px solid olive;
+        }
+        #totalBill{
+            margin-left: 10%;
+        }
+        #splitBill{
+            margin-left: 25%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bill Splitter</h1>
+    <br>
+    Add price per dish:
+    <input type="text" id="dishPrice">
+    <br><br>
+    Total Bill:
+    <!-- <p> Total Bill:</p> -->
+    <div id="totalBill" class="box"></div>
+    <br>
+    Enter no. of Person:
+    <input type="text" id="person">
+    <br><br>
+    Bill to be paid by per person:
+    <div id="splitBill" class="box"></div>
+    <br>
+    <button id="btn">Submit</button>
+</body>
+<script>
+    let dish = document.getElementById('dishPrice');
+    let totalBill = document.getElementById('totalBill');
+    let splitBill = document.getElementById('splitBill');
+    let btn = document.getElementById('btn');
+    let person = document.getElementById('person');
+
+    let Amount = function(){
+        let list = dish.value;
+        let price = list.split(',');
+
+        console.log(price);
+        let total = 0;
+
+        if(isNaN(Number(person.value))){
+            alert(`Enter all values`);
+        }else{
+        for (let i = 0; i < price.length; i++) {
+            total = total + Number(price[i]); 
+        }
+        console.log(total);
+        
+       
+            splitBill.innerHTML = parseFloat( total/Number(person.value)).toFixed(2);
+            totalBill.innerHTML = total;
+        }
+    }
+    btn.addEventListener('click',Amount)
+
+</script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    #image {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+</style>
+</head>
+<body>
+    <img id="image" src="https://th.bing.com/th?id=OSK.HEROIFgan3mrm1WdZi178YzIKNNQDX2fsawxO3IhBqx8Nio&w=384&h=228&c=1&rs=2&o=6&dpr=1.4&pid=SANGAM">
+
+    <script>
+        var image = document.getElementById('image');
+        var imageTop = 0;
+        var imageLeft = 0;
+
+        document.addEventListener('keydown', function(event) {
+            switch(event.keyCode) {
+                case 37: // Left arrow key
+                    imageLeft -= 5;
+                    break;
+                case 38: // Up arrow key
+                    imageTop -= 5;
+                    break;
+                case 39: // Right arrow key
+                    imageLeft += 5;
+                    break;
+                case 40: // Down arrow key
+                    imageTop += 5;
+                    break;
+            }
+
+            image.style.top = imageTop + 'px';
+            image.style.left = imageLeft + 'px';
+        });
+    </script>
+</body>
+</html>

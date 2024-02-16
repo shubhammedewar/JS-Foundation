@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Name</p>
+    <input type="text" id="input">
+    <button type="button" id="btn">Done</button>
+</body>
+<script>
+    let input = document.getElementById('input')
+    let btn = document.getElementById('btn')
+
+    let capital = function(){
+        let name = input.value;
+        console.log(name);
+
+        let x = [...name]
+        console.log(x);
+
+        let a = ( x[0].charCodeAt(0)>=97 && x[0].charCodeAt(0)<=122 ? x[0].toUpperCase() : x[0] );
+        console.log(a);
+
+        let b = [];
+        b.push(a);
+        for (let i = 1; i < x.length; i++) {
+            const element = x[i];
+            
+            b.push(element);
+        }
+        console.log(b);
+        let c =b.join('');
+        console.log(c);
+        input.value = c;
+
+    }
+    btn.addEventListener('click',capital)
+</script>
+</html>
